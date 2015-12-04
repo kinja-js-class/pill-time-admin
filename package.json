@@ -4,7 +4,7 @@
   "description": "lol",
   "main": "index.js",
   "scripts": {
-    "watch": "babel src --watch --out-file dest/app.js"
+    "watch": "babel src --watch --out-file public/js/app.js"
   },
   "repository": {
     "type": "git",

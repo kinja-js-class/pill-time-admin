@@ -15,4 +15,4 @@ ehthumbs.db
 /tags
 /.bundle/
 .idea/*
-dest/
+public/js
