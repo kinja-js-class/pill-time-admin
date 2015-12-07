@@ -1,0 +1,22 @@
+{
+  "name": "veddbe",
+  "description": "A medical aid app",
+  "main": "index.js",
+  "authors": [
+    "Laszlo Heves <laszlo.heves@gawker.com>",
+    "Janos Hardi <janos.hardi@gawker.com>"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "https://github.com/kinja-js-class/veddbe",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pure": "~0.6.0"
+  }
+}
