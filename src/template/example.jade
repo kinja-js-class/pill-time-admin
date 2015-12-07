@@ -1,0 +1,43 @@
+doctype html
+html(class="no-js" ng-app="app")
+    head
+        title= pageTitle
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(href="css/app.css" rel="stylesheet")
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
+        script(src="js/admin.js")
+    body
+        div.pure-menu.pure-menu-horizontal
+            a(href="index.html").pure-menu-heading.pure-menu-link Veddbe
+            ul.pure-menu-list
+                li.pure-menu-item
+                    a(href="index.html").pure-menu-link Use
+                li.pure-menu-item
+                    a(href="admin.html").pure-menu-link Manage
+                li.pure-menu-item
+                    a(href="help.html").pure-menu-link Help
+        div
+            h1 Hello Admin
+            form(class="pure-form pure-form-aligned")
+                fieldset
+                    legend Set up a new Medication record
+                    div.pure-control-group
+                        label(for="name") Drug name
+                        input(
+                            type="text"
+                            placeholder="eg. Vitamin C"
+                        )#name
+                    div.pure-control-group
+                        label(for="dosage") Dosage
+                        input(
+                            type="number"
+                            placeholder="eg. 2"
+                        )#dosage
+                    div.pure-control-group
+                        label(for="unit") Unit
+                        input(
+                            type="text"
+                            placeholder="eg. Pill"
+                        )#unit
+                    div.pure-controls
+                        button(type="submit").pure-button.pure-button-primary Create medical record

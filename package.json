@@ -4,9 +4,10 @@
   "description": "A medical aid app",
   "main": "index.js",
   "scripts": {
-    "build:css": "cleancss -o public/css/app.css src/css/app.css",
+    "build:css": "./node_modules/.bin/cleancss -o public/css/app.css src/css/app.css",
     "build:js": "./node_modules/.bin/babel src/js -d public/js",
-    "build": "npm run build:js && npm run build:css",
+    "build:html": "./node_modules/.bin/jade -P src/template -o public",
+    "build": "npm run build:js && npm run build:css && npm run build:html",
     "watch": "watch 'npm run build' src"
   },
   "repository": {
@@ -22,6 +23,7 @@
     "babel-cli": "^6.3.15",
     "babel-preset-es2015": "^6.3.13",
     "clean-css": "^3.4.8",
+    "jade": "^1.11.0",
     "watch": "^0.16.0"
   }
 }
