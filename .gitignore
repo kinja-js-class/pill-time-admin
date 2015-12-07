@@ -16,3 +16,4 @@ ehthumbs.db
 /.bundle/
 .idea/*
 public/js
+node_modules

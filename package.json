@@ -14,5 +14,8 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/kinja-js-class/veddbe/issues"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13"
   }
 }
