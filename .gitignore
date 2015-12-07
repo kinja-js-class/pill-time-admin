@@ -15,7 +15,7 @@ ehthumbs.db
 /tags
 /.bundle/
 .idea/*
-public/js
-public/css
+public/js/*
+public/css/*
 node_modules
 bower_components

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:css": "cleancss -o public/css/app.css src/css/app.css",
-    "build:js": "./node_modules/.bin/babel src -d public/js",
+    "build:js": "./node_modules/.bin/babel src/js -d public/js",
     "build": "npm run build:js && npm run build:css",
     "watch": "watch 'npm run build' src"
   },
