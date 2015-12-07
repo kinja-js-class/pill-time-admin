@@ -1,15 +1,50 @@
 <!doctype html>
-<html class="no-js" lang="" ng-app="app">
+<html class="no-js" ng-app="app">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Admin</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/app.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="js/admin.js"></script>
 </head>
 <body>
-<h1>Hello Admin</h1>
+<div class="pure-menu pure-menu-horizontal">
+	<a href="index.html" class="pure-menu-heading pure-menu-link">Vedd.be</a>
+	<ul class="pure-menu-list">
+		<li class="pure-menu-item"><a href="admin.html" class="pure-menu-link">Manage</a></li>
+		<li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Use</a></li>
+		<li class="pure-menu-item"><a href="help.html" class="pure-menu-link">Help</a></li>
+	</ul>
+</div>
+<div>
+	<h1>Hello Admin</h1>
+	<form class="pure-form pure-form-aligned">
+		<fieldset>
+			<legend>Set up a new Medication record</legend>
+			<div class="pure-control-group">
+				<label for="name">Drug name</label>
+				<input id="name" type="text" placeholder="eg. Vitamin C"/>
+			</div>
+			<div class="pure-control-group">
+				<label for="dosage">Dosage</label>
+				<input id="dosage" type="number" placeholder="eg. 2 "/>
+			</div>
+			<div class="pure-control-group">
+				<label for="unit">Unit</label>
+				<select name="unit" id="unit">
+					<option value="tab">Tab</option>
+					<option value="pill">Pill</option>
+				</select>
+			</div>
+			<div class="pure-controls">
+				<button type="submit" class="pure-button pure-button-primary">Create new record</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
 </body>
 </html>

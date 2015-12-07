@@ -1,16 +1,18 @@
 {
   "name": "veddbe",
   "version": "0.0.0",
-  "description": "lol",
+  "description": "A medical aid app",
   "main": "index.js",
   "scripts": {
-    "watch": "./node_modules/.bin/babel src --watch -d public/js"
+    "build:css": "cleancss -o public/css/app.css src/css/app.css",
+    "build:js": "./node_modules/.bin/babel src -d public/js",
+    "build": "npm run build:js && npm run build:css",
+    "watch": "watch 'npm run build' src"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/kinja-js-class/veddbe.git"
   },
-  "author": "",
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/kinja-js-class/veddbe/issues"
@@ -18,6 +20,8 @@
   "devDependencies": {
     "babel": "^6.3.13",
     "babel-cli": "^6.3.15",
-    "babel-preset-es2015": "^6.3.13"
+    "babel-preset-es2015": "^6.3.13",
+    "clean-css": "^3.4.8",
+    "watch": "^0.16.0"
   }
 }

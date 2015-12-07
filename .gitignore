@@ -16,4 +16,6 @@ ehthumbs.db
 /.bundle/
 .idea/*
 public/js
+public/css
 node_modules
+bower_components
