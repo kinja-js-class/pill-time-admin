@@ -6,7 +6,7 @@
   "scripts": {
     "build:css": "./node_modules/.bin/cleancss -o public/css/app.css src/css/app.css",
     "build:js": "./node_modules/.bin/babel src/js -d public/js",
-    "build:html": "./node_modules/.bin/jade -P src/template -o public",
+    "build:html": "./node_modules/.bin/jade -H -P src/template -o public",
     "build": "npm run build:js && npm run build:css && npm run build:html",
     "watch": "watch 'npm run build' src"
   },
