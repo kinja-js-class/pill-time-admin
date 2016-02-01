@@ -1,3 +1,3 @@
 /*global angular */
 
-const app = angular.module('app', []);
+const APP = angular.module('app', []);

@@ -5,33 +5,46 @@ block title
 
 block custom_includes
     script(src="js/admin.js")
+    script(src="js/controllers/admin.controller.js")
+    script(src="js/directives/autocomplete.directive.js")
 
 block content
-    div
-        h1 Hello Admin
-        form(class="pure-form pure-form-aligned")
+    .pure-g(ng-controller="adminCtrl")
+        h1.pure-u-1 Hello Admin
+
+        form.pure-form.pure-u-1
             fieldset
-                legend Set up a new Medication record
-                div.pure-control-group
-                    label(for="name") Drug name
-                    input(
-                    ng-model="name"
-                    type="text"
-                    placeholder="eg. Vitamin C"
-                    )#name
-                div.pure-control-group
-                    label(for="dosage") Dosage
-                    input(
-                    ng-model="dosage"
-                    type="number"
-                    placeholder="eg. 2"
-                    )#dosage
-                div.pure-control-group
-                    label(for="unit") Unit
-                    input(
-                    ng-model="unit"
-                    type="text"
-                    placeholder="eg. Pill"
-                    )#unit
-                div.pure-controls
-                    button(type="submit").pure-button.pure-button-primary Create record
+                legend Set up a new treatment
+                input(
+                fetch-data="patient"
+                type="text"
+                placeholder="Who"
+                )#patient
+
+                input(
+                fetch-data="drug"
+                type="text"
+                placeholder="takes what"
+                )#drug
+
+                input(
+                fetch-data="frequency"
+                type="text"
+                placeholder="how often"
+                )#frequency
+
+                button(ng-disabled="!isComplete" type="submit").pure-button.pure-button-primary Save
+
+        .treatment-list.pure-g
+            .pure-u-1-8
+                strong {{treatment.patient}}
+            .pure-u-1-8
+                i(ng-show="!!treatment.drug") has to take
+            .pure-u-1-8
+                {{treatment.drug}}
+            .pure-u-1-8
+                {{treatment.frequency}}
+                span(ng-show="!!treatment.frequency") .
+            .pure-u-1-8(ng-show="!!treatment.frequency")
+                pure-button.pure-button-error Delete
+
