@@ -1,17 +1,20 @@
-APP.factory('treatmentFctry', treatmentFctry);
+APP.factory('treatmentFctry', ($firebaseObject) => {
 
-// treatmentFctry.$inject = ['$firebaseObject'];
+	
+	let service,
+		saveTreatment,
+		root = new Firebase("https://incandescent-fire-8559.firebaseio.com");
 
-function treatmentFctry ($firebaseObject) {
-  var root = new Firebase("https://incandescent-fire-8559.firebaseio.com");
-  var service = {
-    save: saveTreatment
-  };
+	saveTreatment = (treatmentObj) => {
+		let treatmentRef = root.child('treatments');
+		treatmentRef.push(treatmentObj);
+	};
 
-  return service;
+	service = {
+		save: saveTreatment
+	};
 
-  function saveTreatment (treatmentObj) {
-    var treatmentRef = root.child('treatments');
-    treatmentRef.push(treatmentObj);
-  }
-}
+	return service;
+
+
+});

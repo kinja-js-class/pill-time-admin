@@ -1,17 +1,15 @@
-/*global angular */
+APP.directive('fetchData', () => {
 
-APP.directive('fetchData', function () {
-
-		function link (scope, element, attrs) {
-			element.bind('keyup', function () {
-				scope.$apply(function (self) {
-					self.fetchData(element.val(), attrs.fetchData);
-				});
+	let link = (scope, element, attrs) => {
+		element.bind('keyup', function () {
+			scope.$apply(() => {
+				scope.fetchData(element.val(), attrs.fetchData);
 			});
-		}
+		});
+	};
 
-		return {
-			restrict: 'A',
-			link: link
-		};
-	});
+	return {
+		restrict: 'A',
+		link: link
+	};
+});

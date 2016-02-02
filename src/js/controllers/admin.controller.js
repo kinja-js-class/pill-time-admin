@@ -1,27 +1,20 @@
-APP.controller('adminCtrl', adminCtrl);
+APP.controller('adminCtrl', ($scope, treatmentFctry) => {
 
-adminCtrl.$inject = ['$scope', 'treatmentFctry'];
+	let fetchData, saveData, _isComplete;
 
-function adminCtrl ($scope, treatmentFctry) {
-	$scope.treatment = {};
-	$scope.fetchData = fetchData;
-	$scope.saveData = saveData;
-	$scope.isComplete = false;
-
-	
-	function fetchData (queryString, queryTable) {
+	fetchData = (queryString, queryTable) => {
 		$scope.treatment[queryTable] = queryString;
 
 		$scope.isComplete = _isComplete();
-	}
+	};
 
-	function saveData () {
+	saveData = () => {
 		treatmentFctry.save($scope.treatment);
 
 		$scope.treatment = {};
-	}
+	};
 
-	function _isComplete () {
+	_isComplete = () => {
 		let treatment = $scope.treatment;
 
 		if ((Object.keys(treatment).length) === 3) {
@@ -31,7 +24,10 @@ function adminCtrl ($scope, treatmentFctry) {
 		} else {
 			return false;
 		}
-	}
+	};
 
-}
-	
+	$scope.treatment = {};
+	$scope.fetchData = fetchData;
+	$scope.saveData = saveData;
+	$scope.isComplete = false;
+});
