@@ -1,17 +1,18 @@
-APP.factory('treatmentFctry', ($firebaseObject) => {
+APP.factory('patientFctry', ($firebaseObject) => {
 
 	
 	let service,
-		saveTreatment,
+		savePatient,
 		root = new Firebase("https://incandescent-fire-8559.firebaseio.com");
 
-	saveTreatment = (treatmentObj) => {
-		let treatmentRef = root.child('treatments');
-		treatmentRef.push(treatmentObj);
+	savePatient = (name, body) => {
+		let patientRef = root.child('patients');
+
+		patientRef.child(name).child('treatments').push(body);
 	};
 
 	service = {
-		save: saveTreatment
+		save: savePatient
 	};
 
 	return service;

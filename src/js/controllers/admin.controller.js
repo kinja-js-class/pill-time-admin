@@ -1,4 +1,4 @@
-APP.controller('adminCtrl', ($scope, treatmentFctry) => {
+APP.controller('adminCtrl', ($scope, patientFctry) => {
 
 	let checkComplete, saveData, _isComplete;
 
@@ -7,7 +7,11 @@ APP.controller('adminCtrl', ($scope, treatmentFctry) => {
 	};
 
 	saveData = () => {
-		treatmentFctry.save($scope.treatment);
+		let body = Object.assign({}, $scope.treatment);
+
+		delete body.patient;
+
+		patientFctry.save($scope.treatment.patient, body);
 		$scope.treatment = {};
 	};
 
