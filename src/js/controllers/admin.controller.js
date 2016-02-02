@@ -1,16 +1,13 @@
 APP.controller('adminCtrl', ($scope, treatmentFctry) => {
 
-	let fetchData, saveData, _isComplete;
+	let checkComplete, saveData, _isComplete;
 
-	fetchData = (queryString, queryTable) => {
-		$scope.treatment[queryTable] = queryString;
-
+	checkComplete = () => {
 		$scope.isComplete = _isComplete();
 	};
 
 	saveData = () => {
 		treatmentFctry.save($scope.treatment);
-
 		$scope.treatment = {};
 	};
 
@@ -27,7 +24,7 @@ APP.controller('adminCtrl', ($scope, treatmentFctry) => {
 	};
 
 	$scope.treatment = {};
-	$scope.fetchData = fetchData;
 	$scope.saveData = saveData;
+	$scope.checkComplete = checkComplete;
 	$scope.isComplete = false;
 });

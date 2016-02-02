@@ -20,18 +20,21 @@ block content
                 fetch-data="patient"
                 type="text"
                 placeholder="Who"
+                ng-model="treatment.patient"
                 )#patient
 
                 input(
                 fetch-data="drug"
                 type="text"
                 placeholder="takes what"
+                ng-model="treatment.drug"
                 )#drug
 
                 input(
                 fetch-data="frequency"
                 type="text"
                 placeholder="how often"
+                ng-model="treatment.frequency"
                 )#frequency
 
                 button(ng-disabled="!isComplete" type="submit").pure-button.pure-button-primary Save
