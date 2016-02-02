@@ -5,6 +5,7 @@ block title
 
 block custom_includes
     script(src="js/admin.js")
+    script(src="js/services/treatment.factory.js")
     script(src="js/controllers/admin.controller.js")
     script(src="js/directives/autocomplete.directive.js")
 
@@ -12,7 +13,7 @@ block content
     .pure-g(ng-controller="adminCtrl")
         h1.pure-u-1 Hello Admin
 
-        form.pure-form.pure-u-1
+        form(ng-submit="saveData()").pure-form.pure-u-1
             fieldset
                 legend Set up a new treatment
                 input(
