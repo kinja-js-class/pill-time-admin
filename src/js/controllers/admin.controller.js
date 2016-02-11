@@ -19,9 +19,7 @@ APP.controller('adminCtrl', ($scope, patientFctry) => {
 		let treatment = $scope.treatment;
 
 		if ((Object.keys(treatment).length) === 3) {
-			return Object.keys(treatment).every ((el) => {
-				return treatment[el] !== '';
-			});
+			return Object.keys(treatment).every (el => treatment[el] !== '');
 		} else {
 			return false;
 		}
