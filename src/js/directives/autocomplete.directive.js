@@ -1,12 +1,6 @@
-APP.directive('adminForm', (patientFctry) => {
+APP.component('adminForm', {
 
-	let link = (scope, element, attrs, controller) => {
-		element.bind('keypress', function () {
-			controller.checkComplete();
-		});
-	},
-
-	controller = function () {
+	controller: function () {
 		let checkComplete, saveData, _isComplete;
 
 		checkComplete = () => {
@@ -23,10 +17,11 @@ APP.directive('adminForm', (patientFctry) => {
 			this.treatment = {};
 		};
 
+
 		_isComplete = () => {
 			let treatment = this.treatment;
 			if ((Object.keys(treatment).length) === 3) {
-				return Object.keys(treatment).every (el => treatment[el] !== '');
+				return Object.keys(treatment).every(el => treatment[el] !== '');
 			} else {
 				return false;
 			}
@@ -36,12 +31,8 @@ APP.directive('adminForm', (patientFctry) => {
 		this.saveData = saveData;
 		this.checkComplete = checkComplete;
 		this.isComplete = false;
-	};
+	},
 
-	return {
-		restrict: 'A',
-		controller: controller,
-		controllerAs: 'admin',
-		link: link
-	};
+	templateUrl: 'form.html',
+	controllerAs: 'admin'
 });

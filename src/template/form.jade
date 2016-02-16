@@ -1,0 +1,39 @@
+form(ng-submit="admin.saveData()").pure-form.pure-u-1
+    fieldset
+        legend Set up a new treatment
+        input(
+        fetch-data="patient"
+        type="text"
+        placeholder="Who(username)"
+        ng-model="admin.treatment.patient"
+        ng-keypress="admin.checkComplete()"
+        )#patient
+        input(
+        fetch-data="drug"
+        type="text"
+        placeholder="takes what"
+        ng-model="admin.treatment.drug"
+        ng-keypress="admin.checkComplete()"
+        )#drug
+        input(
+        fetch-data="frequency"
+        type="text"
+        placeholder="how often"
+        ng-model="admin.treatment.frequency"
+        ng-keypress="admin.checkComplete()"
+        )#frequency
+        button(ng-disabled="!admin.isComplete" type="submit").pure-button.pure-button-primary Save
+    .treatment-list.pure-g
+        .pure-u-1-8
+            strong {{admin.treatment.patient}}
+        .pure-u-1-8
+            i(ng-show="!!admin.treatment.drug") has to take
+        .pure-u-1-8
+            {{admin.treatment.drug}}
+        .pure-u-1-8
+            {{admin.treatment.frequency}}
+            span(ng-show="!!admin.treatment.frequency") .
+        .pure-u-1-8(ng-show="!!admin.treatment.frequency")
+            pure-button.pure-button-error Delete
+    div {{admin.treatment}}
+    div {{admin}}
