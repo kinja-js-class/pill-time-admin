@@ -1,10 +1,9 @@
 APP.component('adminForm', {
 
-	controller: function () {
+	controller: function (patientFctry) {
 		let checkComplete, saveData, _isComplete;
 
 		checkComplete = () => {
-			console.log(this.isComplete);
 			this.isComplete = _isComplete();
 		};
 
