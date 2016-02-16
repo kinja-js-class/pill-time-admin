@@ -6,49 +6,51 @@ block title
 block custom_includes
     script(src="js/admin.js")
     script(src="js/services/treatment.factory.js")
-    script(src="js/controllers/admin.controller.js")
     script(src="js/directives/autocomplete.directive.js")
 
 block content
-    .pure-g(ng-controller="adminCtrl")
+    .pure-g(admin-form)
         h1.pure-u-1 Hello Admin
 
-        form(ng-submit="saveData()").pure-form.pure-u-1
+        form(ng-submit="admin.saveData()").pure-form.pure-u-1
             fieldset
                 legend Set up a new treatment
                 input(
                 fetch-data="patient"
                 type="text"
                 placeholder="Who(username)"
-                ng-model="treatment.patient"
+                ng-model="admin.treatment.patient"
                 )#patient
 
                 input(
                 fetch-data="drug"
                 type="text"
                 placeholder="takes what"
-                ng-model="treatment.drug"
+                ng-model="admin.treatment.drug"
                 )#drug
 
                 input(
                 fetch-data="frequency"
                 type="text"
                 placeholder="how often"
-                ng-model="treatment.frequency"
+                ng-model="admin.treatment.frequency"
                 )#frequency
 
-                button(ng-disabled="!isComplete" type="submit").pure-button.pure-button-primary Save
+                button(ng-disabled="!admin.isComplete" type="submit").pure-button.pure-button-primary Save
 
         .treatment-list.pure-g
             .pure-u-1-8
-                strong {{treatment.patient}}
+                strong {{admin.treatment.patient}}
             .pure-u-1-8
-                i(ng-show="!!treatment.drug") has to take
+                i(ng-show="!!admin.treatment.drug") has to take
             .pure-u-1-8
-                {{treatment.drug}}
+                {{admin.treatment.drug}}
             .pure-u-1-8
-                {{treatment.frequency}}
-                span(ng-show="!!treatment.frequency") .
-            .pure-u-1-8(ng-show="!!treatment.frequency")
+                {{admin.treatment.frequency}}
+                span(ng-show="!!admin.treatment.frequency") .
+            .pure-u-1-8(ng-show="!!admin.treatment.frequency")
                 pure-button.pure-button-error Delete
+    
+    div {{admin.treatment}}
+    div {{admin}}
 
