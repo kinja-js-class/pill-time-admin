@@ -1,13 +1,12 @@
-extends common/layout.jade
+extends common/index.layout.jade
 
 block title
     title Index
 
-block custom_includes
-    script(src="js/index.js")
+block custom_footer_includes
+    script(src="js/bundle.js")
 
 block content
     div
         h1 Hello!
-    div
-        greeting
+    div.react-main
