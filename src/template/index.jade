@@ -1,12 +1,15 @@
-extends common/index.layout.jade
+extends common/admin.layout.jade
 
 block title
-    title Index
+    title Admin
 
-block custom_footer_includes
-    script(src="js/bundle.js")
+block custom_includes
+    script(src="js/admin/admin.js")
+    script(src="js/admin/services/treatment.factory.js")
+    script(src="js/admin/components/adminform.component.js")
 
 block content
-    div
-        h1 Hello!
-    div.react-main
+    .pure-g(admin-form)
+        h1.pure-u-1 Hello Admin
+
+        admin-form

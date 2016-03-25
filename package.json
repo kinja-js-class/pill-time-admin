@@ -1,19 +1,17 @@
 {
-  "name": "veddbe",
-  "version": "0.0.0",
+  "name": "pill-time",
+  "version": "0.1.0",
   "description": "A medical aid app",
   "main": "index.js",
   "scripts": {
     "build:css": "./node_modules/.bin/cleancss -o public/css/app.css src/css/app.css",
     "watch:css": "watch 'npm run build:css' src/css",
-    "build:js": "./node_modules/.bin/babel src/js -d public/js --ignore src/jsx/**.jsx",
-    "build:jsx": "./node_modules/.bin/browserify src/jsx/**.jsx -o public/js/bundle.js -t [ babelify --presets [ es2015 react  ] ]",
+    "build:js": "./node_modules/.bin/babel src/js -d public/js",
     "watch:js": "watch 'npm run build:js' src/js",
-    "watch:jsx": "watch 'npm run build:jsx' src/jsx",
     "build:html": "./node_modules/.bin/jade -H -P src/template -o public",
     "watch:html": "watch 'npm run build:html' src/template",
-    "build": "npm run build:js && npm run build:css && npm run build:html && npm run build:jsx",
-    "watch": "parallelshell 'npm run watch:js' 'npm run watch:jsx' 'npm run watch:html' 'npm run watch:css'",
+    "build": "npm run build:js && npm run build:css && npm run build:html",
+    "watch": "parallelshell 'npm run watch:js' 'npm run watch:html' 'npm run watch:css'",
     "test": "node_modules/karma/bin/karma start karma.conf.js"
   },
   "repository": {
@@ -42,9 +40,6 @@
     "watch": "^0.16.0"
   },
   "dependencies": {
-    "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "babelify": "^7.2.0"
   }
 }
