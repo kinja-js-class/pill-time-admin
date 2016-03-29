@@ -19,7 +19,7 @@ routeConfig = ($stateProvider, $urlRouterProvider) => {
 	$stateProvider
 		.state("home", {
 			url: "/",
-			template: '<h1>Home</h1>'
+			templateUrl: 'home.html'
 		})
 		.state("login", {
 			url: "/login",
