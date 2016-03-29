@@ -1,15 +1,14 @@
 doctype html
-html(class="no-js")
+html(class="no-js" ng-app="app")
     head
         block title
             title Default
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        link(href="css/app.css" rel="stylesheet")
+
+        include header.jade
+
         block custom_includes
+
     body
-        block navigation
-            include navigation.jade
         block content
             div
                 h1 Hello World
-        block custom_footer_includes
