@@ -1,30 +1,28 @@
 APP.component('loginForm', {
 
-	controller: function (authFctry) {
-		console.log('controller');
-		let loginAttempt,
-			_handleAuthSuccess,
-			_handleAuthError,
-			isLoggingIn = false;
-			
-		this.loginError = 'x';
+	controller: function (authFctry, $state) {
 
-		_handleAuthSuccess = (userData) => {
-			console.log(userData);
+		let _handleAuthSuccess = (userData) => {
+			$state.go('caretaker');
 		};
 
-		_handleAuthError = (error) => {
-			this.loginError = "errormessage";
-			console.log(this);
+		let _handleAuthError = (error) => {
+			this.loginError = error.message
 		};
 
-		loginAttempt = () => {
+		let loginAttempt = () => {
 			this.isLoggingIn = true;
 			authFctry.authenticate(this.email, this.password)
 				.then(_handleAuthSuccess, _handleAuthError);
 		};
 
-		this.loginAttempt = loginAttempt;
+		let resetState = () => {
+			this.isLoggingIn = false
+			this.loginError = ''
+		}
+
+		this.resetState = resetState
+		this.loginAttempt = loginAttempt
 	},
 
 	templateUrl: 'partials/login-form.html',

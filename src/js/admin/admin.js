@@ -13,7 +13,7 @@ let routeConfig,
  * @return VOID
  */
 routeConfig = ($stateProvider, $urlRouterProvider) => {
-	// redirect to `/` if state is not avalable on given location
+	// redirect to `/` if state is not avalable on the given location
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
@@ -31,16 +31,10 @@ routeConfig = ($stateProvider, $urlRouterProvider) => {
 			data: {
 				authorization: true
 			}
-		})
-		.state('patient', {
-			url: '/patient',
-			template: '<h1>Patient</h1>',
-			data: {
-				authorization: true
-			}
 		});
 
 }
+
 /**
  * On the start of the application starts listening on state changes
  * and redirect to the login screen if authentication is required

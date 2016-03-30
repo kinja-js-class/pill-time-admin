@@ -1,11 +1,7 @@
 div.pure-menu.pure-menu-horizontal
-    a(href="index.html").pure-menu-heading.pure-menu-link Veddbe
+    h3.pure-menu-heading Pill Time
     ul.pure-menu-list
         li.pure-menu-item
-            a(href="index.html").pure-menu-link Use
+            a(ui-sref="home").pure-menu-link Home
         li.pure-menu-item
-            a(href="admin.html").pure-menu-link Manage
-        li.pure-menu-item
-            a(href="help.html").pure-menu-link Help
-        li.pure-menu-item
-            a(ng-click="onLogout()").pure-menu-link Logout
+            a(href='#' ng-click="onLogout()").pure-menu-link Logout
