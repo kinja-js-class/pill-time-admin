@@ -1,0 +1,11 @@
+h1 Login
+
+h2.error(ng-show="!!login.loginError")
+	{{login.loginError}}
+form(ng-submit="login.loginAttempt()")
+	input(type="text", placeholder="email" ng-model="login.email")
+	input(type="password", placeholder="password" ng-model="login.password")
+	button(type="submit" ng-disabled="login.isLoggingIn || !login.email || !login.password") Login
+
+p e: {{login.loginError}}
+p e: {{login.isLoggingIn}}

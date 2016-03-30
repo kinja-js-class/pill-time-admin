@@ -23,7 +23,7 @@ routeConfig = ($stateProvider, $urlRouterProvider) => {
 		})
 		.state("login", {
 			url: "/login",
-			template: '<h1>login</h1>'
+			template: '<login-form></login-form>'
 		})
 		.state('caretaker', {
 			url: '/caretaker',
@@ -58,6 +58,11 @@ listenToStateChanges = ($rootScope, $state, authFctry) => {
 			$state.go('login')
 		}
 	});
+
+	$rootScope.onLogout = function() {
+		authFctry.logout();
+		$state.go('home');
+	};
 }
 
 APP.config(routeConfig);
