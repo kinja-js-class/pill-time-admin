@@ -25,9 +25,9 @@ routeConfig = ($stateProvider, $urlRouterProvider) => {
 			url: "/login",
 			template: '<login-form></login-form>'
 		})
-		.state('caretaker', {
-			url: '/caretaker',
-			templateUrl: 'partials/caretaker-form.html',
+		.state('admin', {
+			url: '/admin',
+			template: '<admin-page></admin-page>',
 			data: {
 				authorization: true
 			}

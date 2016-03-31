@@ -3,7 +3,7 @@ APP.component('loginForm', {
 	controller: function (authFctry, $state) {
 
 		let _handleAuthSuccess = (userData) => {
-			$state.go('caretaker');
+			$state.go('admin');
 		};
 
 		let _handleAuthError = (error) => {
