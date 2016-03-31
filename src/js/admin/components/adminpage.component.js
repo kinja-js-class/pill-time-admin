@@ -1,7 +1,6 @@
 APP.component('adminPage', {
 
 	controller: function (patientFctry, $rootScope) {		
-			debugger;
 		let checkComplete = () => {
 			this.isComplete = _isComplete();
 		};
@@ -17,6 +16,7 @@ APP.component('adminPage', {
 
 			patientFctry.save(this.treatment.patient, body);
 			this.treatment = {};
+			this.isComplete = false;
 		};
 
 

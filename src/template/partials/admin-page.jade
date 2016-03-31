@@ -27,18 +27,13 @@ header-component
             ng-keypress="admin.checkComplete()"
             )#frequency
             button(ng-disabled="!admin.isComplete" type="submit").pure-button.pure-button-primary Save
-        .treatment-list.pure-g
-            .pure-u-1-8
-                strong {{admin.treatment.patient}}
-            .pure-u-1-8
-                i(ng-show="!!admin.treatment.drug") has to take
-            .pure-u-1-8
-                {{admin.treatment.drug}}
-            .pure-u-1-8
-                {{admin.treatment.frequency}}
-                span(ng-show="!!admin.treatment.frequency") .
+        .new-treatment
+                strong {{admin.treatment.patient}}&nbsp;
+                i(ng-show="!!admin.treatment.drug") has to take&nbsp;
+                {{admin.treatment.drug}}&nbsp;
+                {{admin.treatment.frequency}}&nbsp;
+                span(ng-show="!!admin.treatment.frequency")
             .pure-u-1-8(ng-show="!!admin.treatment.frequency")
-                pure-button.pure-button-error Delete
 
         div(ng-repeat="(key, value) in admin.patients")
 
