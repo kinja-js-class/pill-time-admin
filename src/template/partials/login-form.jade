@@ -1,9 +1,10 @@
-h1 Login
+.content
+	h1 Login
 
-form(ng-submit="login.loginAttempt()").pure-form.pure-u-1
-	input(type="text", placeholder="email" ng-model="login.email" ng-keypress="login.resetState()")
-	input(type="password", placeholder="password" ng-model="login.password" ng-keypress="login.resetState()")
-	button(type="submit" ng-disabled="login.isLoggingIn || !login.email || !login.password").pure-button.pure-button-primary Login
+	form(ng-submit="login.loginAttempt()").pure-form.pure-u-1
+		input(type="text", placeholder="email" ng-model="login.email" ng-keypress="login.resetState()")
+		input(type="password", placeholder="password" ng-model="login.password" ng-keypress="login.resetState()")
+		button(type="submit" ng-disabled="login.isLoggingIn || !login.email || !login.password").pure-button.pure-button-primary Login
 
-span.error(ng-show="!!login.loginError")
-	{{login.loginError}}
+	span.error(ng-show="!!login.loginError")
+		{{login.loginError}}

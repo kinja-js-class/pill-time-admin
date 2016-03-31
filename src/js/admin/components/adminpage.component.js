@@ -5,9 +5,11 @@ APP.component('adminPage', {
 			this.isComplete = _isComplete();
 		};
 
-		patientFctry.getTreatments().then( (patients) => {
-			this.patients = patients
-		})
+		let _getTreatments = () => {
+			patientFctry.getTreatments().then( (patients) => {
+				this.patients = patients
+			})
+		}
 
 		let saveData = () => {
 			let body = Object.assign({}, this.treatment);
@@ -17,6 +19,7 @@ APP.component('adminPage', {
 			patientFctry.save(this.treatment.patient, body);
 			this.treatment = {};
 			this.isComplete = false;
+			_getTreatments()
 		};
 
 
@@ -28,6 +31,8 @@ APP.component('adminPage', {
 				return false;
 			}
 		};
+
+		_getTreatments()
 
 		this.treatment = {}
 		this.saveData = saveData
